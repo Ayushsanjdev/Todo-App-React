@@ -6,6 +6,19 @@ function App() {
       <h1>
         #todo
       </h1>
+      <section>
+        <div>
+          All
+        </div>
+        <div>
+          Active
+        </div>
+        <div>
+          Completed
+        </div>
+      </section>
+      <input placeholder="add details" />
+      <button>Add</button>
     </div>
   );
 }

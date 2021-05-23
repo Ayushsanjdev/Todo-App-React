@@ -1,6 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway|Monteserrat');
 
 .App {
-  text-align: center;
-  font-family: Roboto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: Raleway;
+  font-weight: bold;
+}
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: Monteserrat;
+  font-weight: bold;
 }
