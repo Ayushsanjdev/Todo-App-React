@@ -71,5 +71,6 @@ form {
 }
 
 .allTodos {
-  margin: 1em 0rem;
+  width: 550px;
+  margin: 1rem auto;
 }

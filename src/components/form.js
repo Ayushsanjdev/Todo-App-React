@@ -1,20 +1,30 @@
 import React from 'react';
 
-const Form = ({ setTodoInput }) => {
+const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
 
   const handleChange = (e) => {
-    e.preventDefault();
     setTodoInput(e.target.value);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTodos([
+      ...todos, {
+        textInput: todoInput, completed: false, id: ""
+      }
+    ]);
+    setTodoInput("");
+  }
+
   return(
-    <form>
+    <form onSubmit={handleSubmit}>
       <input className="input1"
         type="text" 
         placeholder="add details..." 
-        onChange={handleChange} />
+        onChange={handleChange}
+         />
       <button 
-        type="submit">Add</button>
+        type="submit" onClick={handleSubmit}>Add</button>
     </form>
   )
   

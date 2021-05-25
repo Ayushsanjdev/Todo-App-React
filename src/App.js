@@ -4,13 +4,9 @@ import TodoList from './components/todos';
 import Form from './components/form';
 
 function App() {
-
-  // const [addTodo, setAddTodo] = useState('');
+  
   const [todoInput, setTodoInput] = useState('');
-
-  const addNewTodo = () => {}
-
-
+  const [todos, setTodos] = useState([]);
 
   return (
     <div className="App">
@@ -29,8 +25,8 @@ function App() {
         </div>
       </section>
       <hr />
-      <Form setTodoInput={setTodoInput} />
-      <TodoList todoInput={todoInput} />
+      <Form todos={todos} setTodos={setTodos} setTodoInput={setTodoInput} todoInput={todoInput} />
+      <TodoList />
     </div>
   );
 }
