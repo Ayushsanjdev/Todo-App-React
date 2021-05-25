@@ -1,4 +1,5 @@
 import React from 'react';
+import { db } from '../firebaseConfig';
 
 const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
 
@@ -6,25 +7,39 @@ const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
     setTodoInput(e.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const addTodos = (e) => {
     e.preventDefault();
-    setTodos([
-      ...todos, {
-        textInput: todoInput, completed: false, id: ""
+    if(todoInput === '') {
+      alert("Please! Enter a todo first!!") 
+    } else {
+      db.collection('todos').add(
+      {
+        todoInput: todoInput,
+        createdAt: new Date(),
+        complete: false
       }
-    ]);
-    setTodoInput("");
-  }
+    )
+    .then((doc) => {
+      console.log("doucment with id: ", doc.id);
+    })
+    .catch((error) => {
+      console.log("error is: " + error);
+    })}
+    setTodoInput("")
+  };
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form>
       <input className="input1"
         type="text" 
         placeholder="add details..." 
-        onChange={handleChange}
-         />
+        value={todoInput}
+        onChange={handleChange} />
       <button 
-        type="submit" onClick={handleSubmit}>Add</button>
+        className="addButton"
+        type="submit" onClick={addTodos}>Add</button>
+      <br />
+      <p style={{color: 'red'}}></p>
     </form>
   )
   

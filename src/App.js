@@ -6,7 +6,7 @@ import Form from './components/form';
 function App() {
   
   const [todoInput, setTodoInput] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState('');
 
   return (
     <div className="App">
@@ -25,8 +25,10 @@ function App() {
         </div>
       </section>
       <hr />
-      <Form todos={todos} setTodos={setTodos} setTodoInput={setTodoInput} todoInput={todoInput} />
-      <TodoList />
+      <Form 
+        setTodoInput={setTodoInput} 
+        todoInput={todoInput} todos={todos} setTodos={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }
