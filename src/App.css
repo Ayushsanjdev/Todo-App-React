@@ -1,21 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway|Monteserrat');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Montserrat');
 
 .App {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 h1 {
   font-family: Raleway;
-  font-weight: bold;
+  font-weight: bolder;
+  text-align: center;
+  padding: 1rem;
+  margin-right: 4rem;
 }
 
 section {
   display: flex;
-  justify-content: space-evenly;
-  font-family: Monteserrat;
+  justify-content: space-around;
+  font-family: Montserrat;
   font-weight: bold;
+}
+
+.all, .active, .completed {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.all {
+  border-bottom: 5px solid #2f80ed;
+  border-radius: 5px;
+  
+}
+
+.all:hover {
+  transform: scale(1.05);
+}
+
+.input1 {
+  width: 400px;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 3px inset rgb(245, 240, 240);
+  margin-right: 0.5rem;
+  font-family: montserrat;
+}
+
+.input1:hover {
+  border-color: #2f80ed;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #2f80ed;
+  color: white;
+  font-size: large;
+  border: transparent;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+form {
+  text-align: center;
+  margin-top: 0.8rem;
+}
+
+.allTodos {
+  margin: 1em 0rem;
 }
