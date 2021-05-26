@@ -28,7 +28,7 @@ function App() {
       <Form 
         setTodoInput={setTodoInput} 
         todoInput={todoInput} todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos} todoInput={todoInput} />
     </div>
   );
 }

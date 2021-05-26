@@ -73,4 +73,6 @@ form {
 .allTodos {
   width: 500px;
   margin: 1.5rem auto;
+  font-family: montserrat;
+  font-size: large;
 }

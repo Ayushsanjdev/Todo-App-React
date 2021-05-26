@@ -1,5 +1,6 @@
 import React from 'react';
 import { db } from '../firebaseConfig';
+import firebase from 'firebase';
 
 const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
 
@@ -15,17 +16,11 @@ const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
       db.collection('todos').add(
       {
         todoInput: todoInput,
-        createdAt: new Date(),
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         complete: false
       }
-    )
-    .then((doc) => {
-      console.log("doucment with id: ", doc.id);
-    })
-    .catch((error) => {
-      console.log("error is: " + error);
-    })}
-    setTodoInput("")
+    )}
+    setTodoInput("");
   };
 
   return(

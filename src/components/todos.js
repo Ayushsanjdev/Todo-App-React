@@ -1,34 +1,35 @@
-import React,{ useRef } from 'react';
+import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 import firebase from 'firebase';
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todoInput,todos, setTodos }) => {
 
-  const todoRef = useRef();
+  useEffect(() => {
+    getTodos()
+  },[])
 
   const getTodos = () => {
-    db.collection("todos").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        setTodos(
-          todoRef.add({
-            inputText: todos,
-            complete: false,
-            createdAt: firebase.firestore.fieldvalue.serverTimestamp()
-          })
-        )
-      });
-    });
+    db.collection("todos").onSnapshot((querySnapshot) => {
+      setTodos(
+        querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          todos: doc.data().todoInput,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          complete: false
+        })
+      ));
+    })
   }
 
-  //need to work on this one...
-
-
-
   return (
-    <div className="allTodos">
-      <input type="checkbox" id="todo" />
-      <label htmlFor="todo" ref={todoRef}></label>
-    </div>
+      todos && todos.map((todo) => (
+      <div className="allTodos">
+        <input type="checkbox" id="todo" />
+        <label htmlFor="todo"> {todo.todos} </label>
+        <button>x</button>
+      </div>
+      )
+      )
   )
 }
 
