@@ -13,13 +13,12 @@ const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
     if(todoInput === '') {
       alert("Please! Enter a todo first!!") 
     } else {
-      db.collection('todos').add(
-      {
+      db.collection('todos').add({
         todoInput: todoInput,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         complete: false
-      }
-    )}
+      })
+    }
     setTodoInput("");
   };
 
