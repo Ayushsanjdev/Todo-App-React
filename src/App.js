@@ -6,7 +6,7 @@ import Form from './components/form';
 function App() {
   
   const [todoInput, setTodoInput] = useState('');
-  const [todos, setTodos] = useState('');
+  const [todos, setTodos] = useState([]);
 
   return (
     <div className="App">

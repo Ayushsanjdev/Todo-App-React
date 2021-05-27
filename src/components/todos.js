@@ -2,11 +2,11 @@ import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 import firebase from 'firebase/app';
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todoInput,todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
-  })
+  },[])
 
   
 
@@ -23,24 +23,32 @@ const TodoList = ({ todos, setTodos }) => {
     })
   }
   
-  // const toggleComplete = () => {
-  //   db.collection("todos").doc().update({
-  //     complete: true
-  //   })
+  // const handleComplete = () => {
+  //     db.collection("todos").doc().update(
+  //       setTodos(
+  //         todos.map((item) => {
+  //           if(item.id === todos.id) {
+  //             return {
+
+  //             }
+  //           }
+  //         })
+  //       )
+  //     )
   // }
 
-  const delTodos = () => {
-      db.collection("todos").doc().delete();
+  const delTodos = (id) => {
+      db.collection("todos").doc(id).delete();
   }
 
   return (
-      todos && todos.map((todo) => (
+      todos.map((todo) => (
       <div className="allTodos">
         <input type="checkbox" id="todo" /> 
         <label htmlFor="todo">{todo.todoInput}</label>
         <button className="delBtn" onClick={delTodos}>x</button>
       </div>
-      ))
+    ))
   )
 }
 
