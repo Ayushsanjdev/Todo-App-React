@@ -32,10 +32,6 @@ section {
   border-radius: 5px;
 }
 
-.all:hover {
-  border: 3px inset rgb(245, 240, 240);
-}
-
 .input1 {
   width: 400px;
   padding: 1rem;

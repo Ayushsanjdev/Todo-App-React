@@ -1,23 +1,21 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
-import firebase from 'firebase/app';
 
-const TodoList = ({ todoInput,todos, setTodos }) => {
+const TodoList = ({ todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
-  },[])
+  })
 
   
 
   const getTodos = () => {
-    db.collection("todos").onSnapshot((querySnapshot) => {
+    db.collection("allTodos").onSnapshot((querySnapshot) => {
       setTodos(
         querySnapshot.docs.map((doc) => ({
           id: doc.id,
-          todoInput: doc.data().todoInput,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          complete: doc.data().complete
+          todo: doc.data().todo,
+          done: doc.data().done
         })
       ));
     })
@@ -37,15 +35,15 @@ const TodoList = ({ todoInput,todos, setTodos }) => {
   //     )
   // }
 
-  const delTodos = (id) => {
-      db.collection("todos").doc(id).delete();
+  const delTodos = () => {
+    db.collection("allTodos").doc(todos[0].id).delete();
   }
 
   return (
-      todos.map((todo) => (
+      todos && todos.map((todo) => (
       <div className="allTodos">
         <input type="checkbox" id="todo" /> 
-        <label htmlFor="todo">{todo.todoInput}</label>
+        <label htmlFor="todo">{todo.todo}</label>
         <button className="delBtn" onClick={delTodos}>x</button>
       </div>
     ))
