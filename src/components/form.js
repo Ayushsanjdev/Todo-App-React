@@ -1,6 +1,6 @@
 import React from 'react';
 import { db } from '../firebaseConfig';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
 
@@ -28,7 +28,7 @@ const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
       <input className="input1"
         type="text" 
         placeholder="add details..." 
-        value={todoInput}
+        value={todoInput} 
         onChange={handleChange} />
       <button 
         className="addButton"
