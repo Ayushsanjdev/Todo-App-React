@@ -7,13 +7,18 @@ function App() {
   
   const [todoInput, setTodoInput] = useState('');
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('all');  
+
+  const statusHandler = () => {
+    
+  }
 
   return (
     <div className="App">
       <h1>
         #todo
       </h1>
-      <section>
+      <section onClick={statusHandler}>
         <div className="all">
           All
         </div>
@@ -27,8 +32,14 @@ function App() {
       <hr />
       <Form 
         setTodoInput={setTodoInput} 
-        todoInput={todoInput} todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos}  />
+        todoInput={todoInput} 
+        todos={todos} 
+        setTodos={setTodos} />
+      <TodoList 
+        todos={todos} 
+        setTodos={setTodos} 
+        status={status} 
+        setStatus={setStatus}  />
     </div>
   );
 }

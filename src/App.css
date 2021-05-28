@@ -27,10 +27,9 @@ section {
   cursor: pointer;
 }
 
-.all {
+/* .all, .active, .completed{
   border-bottom: 5px solid #2f80ed;
-  border-radius: 5px;
-}
+} */
 
 .input1 {
   width: 400px;
@@ -71,7 +70,7 @@ form {
   margin: 1.5rem auto;
   font-family: montserrat;
   font-weight: 550;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 #todo:checked + label {
@@ -79,14 +78,31 @@ form {
   text-decoration: line-through;
 }
 
+#todo {
+  width: 20px;
+  height: 15px;
+  border-color: cadetblue;
+}
+
 label {
-  padding: 5px;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+hr {
+  margin-top: -2px;
+}
+
+.todoListSection {
+  display: block;
 }
 
 .delBtn {
-  background-color: rgb(209, 223, 223);
   border: none;
   cursor: pointer;
+  vertical-align: middle;
+  padding: 5px;
+  font-size: x-small;
 }
 
 .delBtn:hover {
