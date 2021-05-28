@@ -22,7 +22,7 @@ section {
   font-weight: bold;
 }
 
-.all, .active, .completed {
+.all, .active, .complete {
   padding: 1rem;
   cursor: pointer;
 }
