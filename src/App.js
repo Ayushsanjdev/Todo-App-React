@@ -19,19 +19,23 @@ function App() {
     //eslint-disable-next-line
   },[todos,status])
 
+  // filtering all the todos
   const filterHandler = () => {
     switch(status) {
       case "complete":
         setFilterTodos(todos.filter((todo) => todo.complete === true));
         break;
       case "active":
-        setFilterTodos(todos.filter((todo) => todo.active === false));
+        setFilterTodos(todos.filter((todo) => todo.complete === false));
         break;
       default:
         setFilterTodos(todos);
         break;
     }
   }
+
+  //filter is left and coloring part is left
+  
 
 
 
@@ -40,14 +44,14 @@ function App() {
       <h1>
         #todo
       </h1>
-      <section onClick={statusHandler}>
-        <div className="all">
+      <section>
+        <div onClick={statusHandler} className="all">
           All
         </div>
-        <div className="active">
+        <div onClick={statusHandler} className="active">
           Active
         </div>
-        <div className="complete">
+        <div onClick={statusHandler} className="complete">
           Complete
         </div>
       </section>
@@ -61,7 +65,8 @@ function App() {
         todos={todos} 
         setTodos={setTodos} 
         status={status} 
-        setStatus={setStatus}  />
+        setStatus={setStatus}
+        filterTodos={filterTodos}  />
     </div>
   );
 }

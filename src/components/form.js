@@ -4,10 +4,12 @@ import firebase from 'firebase/app';
 
 const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
 
+
   const handleChange = (e) => {
     setTodoInput(e.target.value);
   }
 
+  // adding todos
   const addTodos = (e) => {
     e.preventDefault();
     if(todoInput === '') {

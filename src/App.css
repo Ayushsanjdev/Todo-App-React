@@ -27,9 +27,9 @@ section {
   cursor: pointer;
 }
 
-/* .all, .active, .completed{
+.all:focus, .active:focus, .complete:focus{
   border-bottom: 5px solid #2f80ed;
-} */
+}
 
 .input1 {
   width: 400px;
@@ -87,6 +87,10 @@ form {
 label {
   padding: 0 20px;
   vertical-align: top;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 hr {
