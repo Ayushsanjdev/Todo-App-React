@@ -24,10 +24,10 @@ function App() {
   const filterHandler = () => {
     switch(status) {
       case "complete":
-        setFilterTodos(todos.filter((todo) => todo.complete === true));
+        setFilterTodos(todos.filter((todoList) => todoList.complete === true));
         break;
       case "active":
-        setFilterTodos(todos.filter((todo) => todo.complete === false));
+        setFilterTodos(todos.filter((todoList) => todoList.complete === false));
         break;
       default:
         setFilterTodos(todos);
@@ -40,14 +40,14 @@ function App() {
       <h1>
         #todo
       </h1>
-      <section>
-        <button onClick={statusHandler} className="all">
+      <section onClick={statusHandler}>
+        <button className="all">
           All
         </button>
-        <button onClick={statusHandler} className="active">
+        <button className="active">
           Active
         </button>
-        <button onClick={statusHandler} className="complete">
+        <button className="complete">
           Complete
         </button>
       </section>
@@ -62,7 +62,8 @@ function App() {
         setTodos={setTodos} 
         status={status} 
         setStatus={setStatus}
-        filterTodos={filterTodos}  />
+        filterTodos={filterTodos}
+        todoInput={todoInput}  />
     </div>
   );
 }

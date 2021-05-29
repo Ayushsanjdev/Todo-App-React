@@ -1,12 +1,12 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
-const TodoList = ({ filterTodos, todos, setTodos }) => {
+const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
     // eslint-disable-next-line
-  },[])
+  },[todoInput])
 
   //getting todos from firebase..
   const getTodos = () => {
@@ -40,10 +40,10 @@ const TodoList = ({ filterTodos, todos, setTodos }) => {
 
   return (
     <section className="todoListSection">
-      {filterTodos.map((todo) => (
+      {filterTodos && filterTodos.map((todo) => (
       <div className="allTodos">
-        <input type="checkbox" id="todo" className={`todo-item ${todo.complete ? "completed" : ""}`} onClick={handleComplete} /> 
-        <label htmlFor="todo" key={todos[0].id}>{todo.todo}</label>
+        <input type="checkbox" id="todo" onClick={handleComplete} /> 
+        <label htmlFor="todo">{todo.todo}</label>
         <div className="btn-div">
           <button className="delBtn" onClick={delTodos}>❌</button>
         </div>

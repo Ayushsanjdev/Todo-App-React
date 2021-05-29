@@ -2,7 +2,7 @@ import React from 'react';
 import { db } from '../firebaseConfig';
 import firebase from 'firebase/app';
 
-const Form = ({ todos, setTodos, todoInput,  setTodoInput }) => {
+const Form = ({ todoInput,  setTodoInput }) => {
 
 
   const handleChange = (e) => {
