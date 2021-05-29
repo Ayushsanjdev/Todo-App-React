@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
-const TodoList = ({ filterTodos,todos, setTodos }) => {
+const TodoList = ({ filterTodos, todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
@@ -25,7 +25,7 @@ const TodoList = ({ filterTodos,todos, setTodos }) => {
   const handleComplete = () => {
     db.collection("allTodos").doc(todos[0].id).get()
     .then((doc) => {
-      if(doc.id === todos[0].id) {
+      if(doc.exists) {
         return doc.ref.update({done: !doc.data().done })
       } else {
         console.error("error");

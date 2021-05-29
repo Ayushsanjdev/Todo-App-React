@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Montserrat');
 
-.App {
+body {
   box-sizing: border-box;
   padding: 0;
   max-width: 700px;
   margin: 0 auto;
+  height: 100%;
 }
 
 h1 {
@@ -25,6 +26,9 @@ section {
 .all, .active, .complete {
   padding: 1rem;
   cursor: pointer;
+  background: transparent;
+  border: transparent;
+  font-size: 1.2rem;
 }
 
 .all:focus, .active:focus, .complete:focus{
@@ -67,11 +71,12 @@ form {
 }
 
 .allTodos {
-  width: 350px;
-  margin: 1.5rem 5rem;
+  width: 450px;
+  margin: 1.5rem auto;
   font-family: montserrat;
   font-weight: 550;
   font-size: 1.1rem;
+  min-height: 100%;
 }
 
 #todo:checked + label {
@@ -101,6 +106,7 @@ label {
 
 hr {
   margin-top: -2px;
+  max-width: 900px;
 }
 
 .todoListSection {
@@ -122,4 +128,22 @@ hr {
 
 .btn-div {
   float: right;
+}
+
+@media only screen and (min-width: 711px) {
+  body {
+    max-width: 1069px;
+  }
+}
+
+@media only screen and (max-width: 626px) {
+  .allTodos {
+    width: 300px;
+  }
+  .input1 {
+    width: 250px;
+  }
+  .addButton {
+    width: min-content;
+  }
 }

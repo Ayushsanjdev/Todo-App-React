@@ -45,15 +45,15 @@ function App() {
         #todo
       </h1>
       <section>
-        <div onClick={statusHandler} className="all">
+        <button onClick={statusHandler} className="all">
           All
-        </div>
-        <div onClick={statusHandler} className="active">
+        </button>
+        <button onClick={statusHandler} className="active">
           Active
-        </div>
-        <div onClick={statusHandler} className="complete">
+        </button>
+        <button onClick={statusHandler} className="complete">
           Complete
-        </div>
+        </button>
       </section>
       <hr />
       <Form 
