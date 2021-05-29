@@ -15,7 +15,7 @@ function App() {
   }
 
   useEffect(() => {
-    filterHandler()
+    filterHandler();
     //eslint-disable-next-line
   },[ todos, status ])
 
@@ -24,13 +24,16 @@ function App() {
   const filterHandler = () => {
     switch(status) {
       case "complete":
-        setFilterTodos(todos.filter((todoList) => todoList.complete === true));
+        setFilterTodos(todos.filter((todo) => todo.done === true));
+        console.log(status)
         break;
       case "active":
-        setFilterTodos(todos.filter((todoList) => todoList.complete === false));
+        setFilterTodos(todos.filter((todo) => todo.done === false));
+        console.log(status);
         break;
       default:
         setFilterTodos(todos);
+        console.log(status)
         break;
     }
   }
@@ -40,14 +43,14 @@ function App() {
       <h1>
         #todo
       </h1>
-      <section onClick={statusHandler}>
-        <button className="all">
+      <section >
+        <button onClick={statusHandler} className="all">
           All
         </button>
-        <button className="active">
+        <button onClick={statusHandler} className="active">
           Active
         </button>
-        <button className="complete">
+        <button onClick={statusHandler} className="complete">
           Complete
         </button>
       </section>

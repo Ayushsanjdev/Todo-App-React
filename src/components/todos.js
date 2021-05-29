@@ -40,7 +40,7 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
 
   return (
     <section className="todoListSection">
-      {filterTodos && filterTodos.map((todo) => (
+      {filterTodos.map((todo) => (
       <div className="allTodos">
         <input type="checkbox" id="todo" onClick={handleComplete} /> 
         <label htmlFor="todo">{todo.todo}</label>

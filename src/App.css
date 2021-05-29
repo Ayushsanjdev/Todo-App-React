@@ -97,10 +97,6 @@ label {
   vertical-align: top;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 hr {
   margin-top: -2px;
   max-width: 900px;
