@@ -40,7 +40,7 @@ const TodoList = ({ filterTodos, todos, setTodos }) => {
 
   return (
     <section className="todoListSection">
-      {filterTodos && filterTodos.map((todo) => (
+      {filterTodos.map((todo) => (
       <div className="allTodos">
         <input type="checkbox" id="todo" className={`todo-item ${todo.complete ? "completed" : ""}`} onClick={handleComplete} /> 
         <label htmlFor="todo" key={todos[0].id}>{todo.todo}</label>

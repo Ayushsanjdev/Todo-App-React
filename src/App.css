@@ -76,7 +76,6 @@ form {
   font-family: montserrat;
   font-weight: 550;
   font-size: 1.1rem;
-  min-height: 100%;
 }
 
 #todo:checked + label {
@@ -85,8 +84,6 @@ form {
 }
 
 #todo {
-  width: 20px;
-  height: 15px;
   border-color: rgb(68, 201, 206);
 }
 
@@ -140,11 +137,14 @@ hr {
 @media only screen and (max-width: 626px) {
   .allTodos {
     width: 300px;
+    height: 15px;
+    font-size: 1rem;
+    letter-spacing: -0.03em;
   }
   .input1 {
     width: 200px;
   }
   .addButton {
-    width: min-content;
+    width: 70px;
   }
 }

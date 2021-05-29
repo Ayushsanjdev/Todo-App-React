@@ -15,9 +15,10 @@ function App() {
   }
 
   useEffect(() => {
-    filterHandler();
+    filterHandler()
     //eslint-disable-next-line
-  },[todos,status])
+  },[ todos, status ])
+
 
   // filtering all the todos
   const filterHandler = () => {
@@ -33,12 +34,7 @@ function App() {
         break;
     }
   }
-
-  //filter is left and coloring part is left
   
-
-
-
   return (
     <div className="App">
       <h1>
