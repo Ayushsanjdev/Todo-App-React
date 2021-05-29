@@ -44,7 +44,9 @@ const TodoList = ({ filterTodos,todos, setTodos }) => {
       <div className="allTodos">
         <input type="checkbox" id="todo" className={`todo-item ${todo.complete ? "completed" : ""}`} onClick={handleComplete} /> 
         <label htmlFor="todo" key={todos[0].id}>{todo.todo}</label>
-        <button className="delBtn" onClick={delTodos}>❌</button>
+        <div className="btn-div">
+          <button className="delBtn" onClick={delTodos}>❌</button>
+        </div>
       </div>
     ))}
     </section>

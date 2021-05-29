@@ -42,7 +42,8 @@ section {
 
 .input1:hover {
   border-color: #2f80ed;
-  
+  border-style: outset;
+  border-width: 3px;
 }
 
 .addButton {
@@ -66,8 +67,8 @@ form {
 }
 
 .allTodos {
-  width: 500px;
-  margin: 1.5rem auto;
+  width: 350px;
+  margin: 1.5rem 5rem;
   font-family: montserrat;
   font-weight: 550;
   font-size: 1.1rem;
@@ -81,7 +82,12 @@ form {
 #todo {
   width: 20px;
   height: 15px;
-  border-color: cadetblue;
+  border-color: rgb(68, 201, 206);
+}
+
+#todo:hover {
+  border:1px solid #2f80ed;
+  cursor: pointer;
 }
 
 label {
@@ -107,8 +113,13 @@ hr {
   vertical-align: middle;
   padding: 5px;
   font-size: x-small;
+  background-color: transparent;
 }
 
 .delBtn:hover {
   border: outset;
+}
+
+.btn-div {
+  float: right;
 }
