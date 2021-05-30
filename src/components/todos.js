@@ -23,10 +23,11 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
   
   // toggling true or false on check
   const handleComplete = () => {
+    const newTodos = [...todos];
     db.collection("allTodos").doc(todos[0].id).get()
-    .then((doc) => {
-      if(doc.exists) {
-        return doc.ref.update({done: !doc.data().done })
+    .then((item) => {
+      if(item.exists) {
+        return item.ref.update({newTodos, done: !item.data().done })
       } else {
         console.error("error");
       }

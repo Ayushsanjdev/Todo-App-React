@@ -25,15 +25,12 @@ function App() {
     switch(status) {
       case "complete":
         setFilterTodos(todos.filter((todo) => todo.done === true));
-        console.log(status)
         break;
       case "active":
         setFilterTodos(todos.filter((todo) => todo.done === false));
-        console.log(status);
         break;
       default:
         setFilterTodos(todos);
-        console.log(status)
         break;
     }
   }
