@@ -31,8 +31,36 @@ section {
   font-size: 1.2rem;
 }
 
+.all-alternative {
+  padding: 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+  font-size: 1.2rem;
+}
+
+.all-alternative:focus {
+  border-bottom: 5px solid #2f80ed;
+}
+
 .all:focus, .active:focus, .complete:focus{
   border-bottom: 5px solid #2f80ed;
+}
+
+.all {
+  border-bottom: 5px solid #2f80ed;
+}
+
+.active-alternative {
+  padding: 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+  font-size: 1.2rem;
+}
+
+.active-alternative:focus {
+  border-bottom: 5px solid #2f80ed;  
 }
 
 .input1 {
@@ -100,7 +128,7 @@ label {
 
 hr {
   margin-top: -2px;
-  max-width: 800px;
+  max-width: 850px;
 }
 
 .todoListSection {

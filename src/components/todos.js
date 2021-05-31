@@ -1,12 +1,12 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
-const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
+const TodoList = ({ status, todoInput,filterTodos, todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
     // eslint-disable-next-line
-  },[todoInput])
+  },[todoInput, todos])
 
   //getting todos from firebase..
   const getTodos = () => {
@@ -22,8 +22,11 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
   }
   
   // toggling true or false on check
-  const handleComplete = () => {
-    db.collection("allTodos").doc(todos[0].id).get()
+  const handleComplete = (todoId) => {
+    db
+    .collection("allTodos")
+    .doc(todoId)
+    .get()
     .then((item) => {
       if(item.exists) {
         return item.ref.update({...todos, done: !item.data().done })
@@ -35,18 +38,30 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
 
   //deleting todos
   const delTodos = () => {
-    db.collection("allTodos").doc(todos[0].id).delete()  
+    db.collection("allTodos").doc(todos[0].id).delete() 
   }
 
   return (
     <section className="todoListSection">
       {filterTodos.map((todo) => (
       <div className="allList">
-        <input type="checkbox" id="todo" className={todo.done === true ? "addCheck" : ""} onClick={handleComplete} defaultChecked={todo.done === true ? "Checked" : ""} /> 
-        <label htmlFor="todo" className={todo.done === true ? "addCheck" : ""}>{todo.todo}</label>
-        <div className="btn-div">
-          <button className="delBtn" onClick={delTodos}>❌</button>
-        </div>
+        <input
+          type="checkbox" 
+          id="todo" 
+          onChange={(e) => handleComplete(todo.id)} 
+          checked={todo.done} /> 
+        <label 
+          htmlFor="todo" 
+          className={todo.done === true ? "addCheck" : ""}>
+          {todo.todo}</label>
+        <div className="btn-div" >
+        {status === "complete" ? 
+          <button 
+            className="delBtn" 
+            onClick={delTodos}>❌</button>
+          : ""
+        }
+        </div> 
       </div>
     ))}
     </section>

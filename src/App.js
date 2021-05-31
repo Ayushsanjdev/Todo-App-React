@@ -12,7 +12,7 @@ function App() {
   // const [checked, setChecked] = useState(false);  
 
   const statusHandler = (e) => {
-    setStatus(e.target.className);
+    setStatus(e.target.value);
   }
 
   useEffect(() => {
@@ -36,19 +36,20 @@ function App() {
     }
   }
   
+  
   return (
     <div className="App">
       <h1>
         #todo
       </h1>
-      <section >
-        <button onClick={statusHandler} className="all">
+      <section onClick={statusHandler} >
+        <button className={status === 'all' ? "all" : "all-alternative"} value="all">
           All
         </button>
-        <button onClick={statusHandler} className="active">
+        <button className={status === 'active' ? "active" : "active-alternative"} value="active">
           Active
         </button>
-        <button onClick={statusHandler} className="complete">
+        <button className="complete" value="complete">
           Complete
         </button>
       </section>
