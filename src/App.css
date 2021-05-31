@@ -106,16 +106,6 @@ form {
   font-size: 1.1rem;
 }
 
-
-#todo {
-  border-color: rgb(68, 201, 206);
-}
-
-#todo:hover {
-  border:1px solid #2f80ed;
-  cursor: pointer;
-}
-
 .addCheck {
   text-decoration: line-through;
   opacity: 0.5;
