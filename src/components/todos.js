@@ -23,11 +23,10 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
   
   // toggling true or false on check
   const handleComplete = () => {
-    const newTodos = [...todos];
     db.collection("allTodos").doc(todos[0].id).get()
     .then((item) => {
       if(item.exists) {
-        return item.ref.update({newTodos, done: !item.data().done })
+        return item.ref.update({...todos, done: !item.data().done })
       } else {
         console.error("error");
       }
@@ -42,9 +41,9 @@ const TodoList = ({ todoInput,filterTodos, todos, setTodos }) => {
   return (
     <section className="todoListSection">
       {filterTodos.map((todo) => (
-      <div className="allTodos">
-        <input type="checkbox" id="todo" onClick={handleComplete} /> 
-        <label htmlFor="todo">{todo.todo}</label>
+      <div className="allList">
+        <input type="checkbox" id="todo" className={todo.done === true ? "addCheck" : ""} onClick={handleComplete} defaultChecked={todo.done === true ? "Checked" : ""} /> 
+        <label htmlFor="todo" className={todo.done === true ? "addCheck" : ""}>{todo.todo}</label>
         <div className="btn-div">
           <button className="delBtn" onClick={delTodos}>❌</button>
         </div>

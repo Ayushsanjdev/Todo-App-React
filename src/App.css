@@ -70,7 +70,7 @@ form {
   margin-top: 0.8rem;
 }
 
-.allTodos {
+.allList {
   width: 400px;
   margin: 1.5rem auto;
   font-family: montserrat;
@@ -78,10 +78,6 @@ form {
   font-size: 1.1rem;
 }
 
-#todo:checked + label {
-  color: grey;
-  text-decoration: line-through;
-}
 
 #todo {
   border-color: rgb(68, 201, 206);
@@ -90,6 +86,11 @@ form {
 #todo:hover {
   border:1px solid #2f80ed;
   cursor: pointer;
+}
+
+.addCheck {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 label {
@@ -131,7 +132,7 @@ hr {
 }
 
 @media only screen and (max-width: 626px) {
-  .allTodos {
+  .allList {
     width: 300px;
     height: 15px;
     font-size: 1rem;

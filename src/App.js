@@ -8,7 +8,8 @@ function App() {
   const [todoInput, setTodoInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
-  const [filterTodos, setFilterTodos] = useState([]);  
+  const [filterTodos, setFilterTodos] = useState([]);
+  // const [checked, setChecked] = useState(false);  
 
   const statusHandler = (e) => {
     setStatus(e.target.className);
@@ -63,7 +64,7 @@ function App() {
         status={status} 
         setStatus={setStatus}
         filterTodos={filterTodos}
-        todoInput={todoInput}  />
+        todoInput={todoInput} />
     </div>
   );
 }
