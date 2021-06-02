@@ -1,12 +1,12 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
-const TodoList = ({ status, todoInput,filterTodos, todos, setTodos }) => {
+const TodoList = ({ status, setStatus, filterTodos, todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
     // eslint-disable-next-line
-  },[todoInput, todos])
+  },[])
 
   //getting todos from firebase..
   const getTodos = () => {
@@ -29,7 +29,7 @@ const TodoList = ({ status, todoInput,filterTodos, todos, setTodos }) => {
     .get()
     .then((item) => {
       if(item.exists) {
-        return item.ref.update({...todos, done: !item.data().done })
+        return item.ref.update({done: !item.data().done })
       } else {
         console.error("error");
       }
@@ -38,7 +38,8 @@ const TodoList = ({ status, todoInput,filterTodos, todos, setTodos }) => {
 
   //deleting todos
   const delTodos = () => {
-    db.collection("allTodos").doc(todos[0].id).delete() 
+    db.collection("allTodos").doc(todos[0].id).delete()
+    setStatus('all'); 
   }
 
   return (
@@ -47,7 +48,8 @@ const TodoList = ({ status, todoInput,filterTodos, todos, setTodos }) => {
       <div className="allList">
         <input
           type="checkbox" 
-          id="todo" 
+          id="todo"
+          maxLength="20" 
           onChange={(e) => handleComplete(todo.id)} 
           checked={todo.done} /> 
         <label 

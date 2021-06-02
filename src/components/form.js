@@ -6,6 +6,7 @@ const Form = ({ todoInput,  setTodoInput }) => {
 
 
   const handleChange = (e) => {
+    e.preventDefault();
     setTodoInput(e.target.value);
   }
 
