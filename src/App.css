@@ -65,6 +65,8 @@ section {
   border-bottom: 5px solid #2f80ed;  
 }
 
+
+
 .input1 {
   width: 400px;
   padding: 1.2rem;
@@ -76,6 +78,10 @@ section {
 
 .input1:hover {
   border-color: #2f80ed;
+}
+
+.hideInput {
+  display: none;
 }
 
 .addButton {

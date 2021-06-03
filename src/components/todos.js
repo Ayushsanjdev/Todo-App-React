@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
 const TodoList = ({ status, filterTodos, todos, setTodos }) => {
@@ -17,7 +17,7 @@ const TodoList = ({ status, filterTodos, todos, setTodos }) => {
           todo: doc.data().todo,
           done: doc.data().done 
         })
-      ));
+      ))
     })
   }
   
@@ -39,17 +39,23 @@ const TodoList = ({ status, filterTodos, todos, setTodos }) => {
   //deleting todos
   const delTodos = () => {
     db.collection("allTodos").doc(filterTodos[0].id).delete()
-
   }
+
+  // const delAll = () => {
+  //   db.collection("allTodos").doc(filterTodos[0].id).delete(filterTodos[0].done == true)
+  // }
 
   return (
     <section className="todoListSection">
+    <p 
+      style={{textAlign:"center",color: 'red',fontSize:"smaller" }}>Note: Please! Do not write Explicit or abusive content or words</p>
+
       {filterTodos.map((todo) => (
       <div className="allList">
         <input
           type="checkbox" 
           id="todo"
-          maxLength="20" 
+          maxLength="15" 
           onChange={(e) => handleComplete(todo.id)} 
           checked={todo.done} /> 
         <label 
@@ -66,6 +72,11 @@ const TodoList = ({ status, filterTodos, todos, setTodos }) => {
         </div> 
       </div>
     ))}
+    {/* {status === 'complete' ?
+    <div style={{textAlign: 'center', marginTop: '1rem'}}> 
+    <button style={{padding: '0.8rem', borderRadius: '10px', backgroundColor: '#ff6600', color: 'white', cursor: 'pointer', border: '2px outset transparent', fontSize: "1rem"}} onClick={delAll} >Delete all</button>
+    </div>
+    : ""} */}
     </section>
   )
 }

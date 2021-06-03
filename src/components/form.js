@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { db } from '../firebaseConfig';
 import firebase from 'firebase/app';
 
 const Form = ({ todoInput,  setTodoInput }) => {
 
+  const inputRef = useRef();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ const Form = ({ todoInput,  setTodoInput }) => {
   const addTodos = (e) => {
     e.preventDefault();
     if(todoInput === '') {
-      alert("Please! Enter a todo first!!") 
+      inputRef.current.textContent = "Please enter todo first!"
     } else {
       db.collection('allTodos').add({
         todo: todoInput,
@@ -25,8 +26,9 @@ const Form = ({ todoInput,  setTodoInput }) => {
     setTodoInput("");
   };
 
-  return(
-    <form>
+
+  return( 
+    <form>  
       <input className="input1"
         type="text" 
         placeholder="add details..." 
@@ -36,10 +38,9 @@ const Form = ({ todoInput,  setTodoInput }) => {
         className="addButton"
         type="submit" onClick={addTodos}>Add</button>
       <br />
-      <p style={{color: 'red'}}></p>
+      {/* <p ref={inputRef}>{setTimeout(2000)}</p> */}
     </form>
-  )
-  
+  ) 
 }
 
 export default Form;

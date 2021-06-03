@@ -8,8 +8,7 @@ function App() {
   const [todoInput, setTodoInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
-  const [filterTodos, setFilterTodos] = useState([]);
-  // const [checked, setChecked] = useState(false);  
+  const [filterTodos, setFilterTodos] = useState([]);  
 
   const statusHandler = (e) => {
     setStatus(e.target.value);
@@ -54,11 +53,14 @@ function App() {
         </button>
       </section>
       <hr />
-      <Form 
-        setTodoInput={setTodoInput} 
-        todoInput={todoInput} 
-        todos={todos} 
-        setTodos={setTodos} />
+      {
+        status !== "complete" && 
+        <Form 
+          setTodoInput={setTodoInput} 
+          todoInput={todoInput} 
+          todos={todos} 
+          setTodos={setTodos} /> 
+      }
       <TodoList 
         todos={todos} 
         setTodos={setTodos} 
