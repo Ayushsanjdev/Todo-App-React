@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { db } from '../firebaseConfig';
 
-const TodoList = ({ status, setStatus, filterTodos, todos, setTodos }) => {
+const TodoList = ({ status, filterTodos, todos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
@@ -38,8 +38,8 @@ const TodoList = ({ status, setStatus, filterTodos, todos, setTodos }) => {
 
   //deleting todos
   const delTodos = () => {
-    db.collection("allTodos").doc(todos[0].id).delete()
-    setStatus('all'); 
+    db.collection("allTodos").doc(filterTodos[0].id).delete()
+
   }
 
   return (

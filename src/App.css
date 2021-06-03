@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   height: 100%;
   background: rgb(2,0,36);
-background: linear-gradient(94deg, rgba(2,0,36,1) 0%, rgba(88,218,146,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(94deg, rgb(105, 104, 119) 0%, rgb(99, 253, 169) 0%, rgb(202, 232, 238) 100%);
 }
 
 h1 {
@@ -109,12 +109,12 @@ form {
   margin-top: 15px;
   font-family: montserrat;
   font-weight: 550;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   background-color: rgb(255, 255, 255);
-  box-shadow: -21px -3px 27px 4px rgba(207, 207, 207, 0.73) inset;
-  -webkit-box-shadow: -21px -3px 27px 4px rgba(187, 187, 187, 0.73) inset;
-  -moz-box-shadow: -21px -3px 27px 4px rgba(223, 223, 223, 0.73) inset;
-  padding: 1.3rem;
+  box-shadow: -21px -3px 27px 4px rgba(253, 248, 248, 0.73) inset;
+  -webkit-box-shadow: -21px -3px 27px 4px rgba(252, 241, 241, 0.73) inset;
+  -moz-box-shadow: -21px -3px 27px 4px rgba(248, 237, 237, 0.73) inset;
+  padding: 1.1rem;
   border-radius: 10px;
 }
 
