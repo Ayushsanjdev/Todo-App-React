@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 
 const Form = ({ todoInput,  setTodoInput }) => {
 
-  const inputRef = useRef();
+  // const inputRef = useRef();
 
   const handleChange = (e) => {
     e.preventDefault();
