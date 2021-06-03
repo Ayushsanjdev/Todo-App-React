@@ -48,7 +48,7 @@ const TodoList = ({ status, filterTodos, todos, setTodos }) => {
   return (
     <section className="todoListSection">
     <p 
-      style={{textAlign:"center",color: 'red',fontSize:"smaller" }}>Note: Please! Do not write Explicit or abusive content or words</p>
+      style={{textAlign:"center",color: 'red', fontWeight: 'lighter'}}>Note: Please! Do not write Explicit or abusive content or words</p>
 
       {filterTodos.map((todo) => (
       <div className="allList">

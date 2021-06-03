@@ -15,7 +15,8 @@ const Form = ({ todoInput,  setTodoInput }) => {
   const addTodos = (e) => {
     e.preventDefault();
     if(todoInput === '') {
-      inputRef.current.textContent = "Please enter todo first!"
+      // inputRef.current.textContent = "Please enter todo first!"
+      alert("please! enter a todo first!");
     } else {
       db.collection('allTodos').add({
         todo: todoInput,
